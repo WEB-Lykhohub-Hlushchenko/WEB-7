@@ -1,4 +1,5 @@
 <template>
+  <div class="registration-content">
   <div class="registration-container">
     <h2>Реєстрація</h2>
     <form @submit.prevent="onSubmit" class="form">
@@ -42,10 +43,10 @@
       <button type="submit" :disabled="!formIsValid" class="submit-button">Зареєструватись</button>
       <button @click="goToLogin" class="login-button">Вже маєте акаунт? Увійти</button>
     </form>
-
+  </div>
     <!-- Таблиця з даними -->
     <Table v-if="tableData.length > 0" :data="tableData" @duplicate="duplicateRow" @delete="deleteRow" />
-  </div>
+</div>
 </template>
 
 <script>
@@ -162,12 +163,20 @@ export default {
 </script>
 
 <style>
+.registration-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
 .registration-container {
   max-width: 500px;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  align-self: center;
 }
 
 h2 {
